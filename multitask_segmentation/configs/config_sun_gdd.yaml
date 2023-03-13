@@ -1,0 +1,84 @@
+# Data paths 
+train_datasets: ['sun_train', 'gdd_train']
+dev_datasets: ['sun_val', 'gdd_val']
+test_datasets: ['sun_val', 'gdd_val']
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: resnet
+
+categories: [
+  other,
+  floor,
+  glass,
+]
+
+cat_mapping_gdd: {
+  'background': 'other', 
+  'glass': 'glass'
+}
+
+cat_mapping_sun: {
+  'wall': 'other',
+  'floor': 'floor',
+  'cabinet': 'other',
+  'bed': 'other',
+  'chair': 'other',
+  'sofa': 'other',
+  'table': 'other',
+  'door': 'other',
+  'window': 'other',
+  'bookshelf': 'other',
+  'picture': 'other',
+  'counter': 'other',
+  'blinds': 'other',
+  'desk': 'other',
+  'shelves': 'other',
+  'curtain': 'other',
+  'dresser': 'other',
+  'pillow': 'other',
+  'mirror': 'other',
+  'floor_mat': 'other',
+  'clothes': 'other',
+  'ceiling': 'other',
+  'books': 'other',
+  'fridge': 'other',
+  'tv': 'other',
+  'paper': 'other',
+  'towel': 'other',
+  'shower_curtain': 'other',
+  'box': 'other',
+  'whiteboard': 'other',
+  'person': 'other',
+  'night_stand': 'other',
+  'toilet': 'other',
+  'sink': 'other',
+  'lamp': 'other',
+  'bathtub': 'other',
+  'bag': 'other',
+}
+
+dataset2task: {
+  'train': {
+    'sun_train': 0,
+    'gdd_train': 0,
+  },
+  'valid': {
+    'sun_val': 0,
+    'gdd_val': 0,
+  },
+  'test': {
+    'sun_val': 0,
+    'gdd_val': 0,
+  }
+}
+
+# Training parameters
+max_epochs: 1
+# Number of images from one dataset in batch
+batch_size: 5
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 5

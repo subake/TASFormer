@@ -1,0 +1,50 @@
+# Data paths 
+train_datasets: ['transp_train']
+dev_datasets: ['transp_val']
+test_datasets: ['transp_val']
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer
+
+categories: [
+  other,
+  glass,
+]
+
+cat_mapping_trans: {
+  'background': 'other', 
+  'shelf': 'glass',
+  'jar or tank': 'glass',
+  'freezer': 'glass',
+  'window': 'glass',
+  'glass door': 'glass', 
+  'eyeglass': 'glass', 
+  'cup': 'glass', 
+  'floor glass': 'glass', 
+  'glass bowl': 'glass',
+  'water bottle': 'glass', 
+  'storage box': 'glass',
+}
+
+dataset2task: {
+  'train': {
+    'transp_train': 0,
+  },
+  'valid': {
+    'transp_val': 0,
+  },
+  'test': {
+    'transp_val': 0,
+  }
+}
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 5

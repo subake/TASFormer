@@ -1,0 +1,238 @@
+# Data paths 
+train_datasets: ['ade_train']
+dev_datasets: ['ade_val']
+test_datasets: []
+predict_datasets: ['ade_val']
+
+predict_save_path: '/home/Work/TASFormer/ADE20K_multitask_segmentation/results/adapter_150/'
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer_with_adapter
+# segformer_with_task_embedding
+# segformer_with_vsa_task_embedding
+
+num_categories: 2
+
+num_tasks: 150
+
+# 150
+categories_ade: [other, wall, building;edifice, sky, floor;flooring, tree, ceiling, road;route, bed, windowpane;window, grass, cabinet, sidewalk;pavement, person;individual;someone;somebody;mortal;soul, earth;ground, door;double;door, table, mountain;mount, plant;flora;plant;life, curtain;drape;drapery;mantle;pall, chair, car;auto;automobile;machine;motorcar, water, painting;picture, sofa;couch;lounge, shelf, house, sea, mirror, rug;carpet;carpeting, field, armchair, seat, fence;fencing, desk, rock;stone, wardrobe;closet;press, lamp, bathtub;bathing;tub;bath;tub, railing;rail, cushion, base;pedestal;stand, box, column;pillar, signboard;sign, chest;of;drawers;chest;bureau;dresser, counter, sand, sink, skyscraper, fireplace;hearth;open;fireplace, refrigerator;icebox, grandstand;covered;stand, path, stairs;steps, runway, case;display;case;showcase;vitrine, pool;table;billiard;table;snooker;table, pillow, screen;door;screen, stairway;staircase, river, bridge;span, bookcase, blind;screen, coffee;table;cocktail;table, toilet;can;commode;crapper;pot;potty;stool;throne, flower, book, hill, bench, countertop, stove;kitchen;stove;range;kitchen;range;cooking;stove, palm;palm;tree, kitchen;island, computer;computing;machine;computing;device;data;processor;electronic;computer;information;processing;system, swivel;chair, boat, bar, arcade;machine, hovel;hut;hutch;shack;shanty, bus;autobus;coach;charabanc;double-decker;jitney;motorbus;motorcoach;omnibus;passenger;vehicle, towel, light;light;source, truck;motortruck, tower, chandelier;pendant;pendent, awning;sunshade;sunblind, streetlight;street;lamp, booth;cubicle;stall;kiosk, television;television;receiver;television;set;tv;tv;set;idiot;box;boob;tube;telly;goggle;box, airplane;aeroplane;plane, dirt;track, apparel;wearing;apparel;dress;clothes, pole, land;ground;soil, bannister;banister;balustrade;balusters;handrail, escalator;moving;staircase;moving;stairway, ottoman;pouf;pouffe;puff;hassock, bottle, buffet;counter;sideboard, poster;posting;placard;notice;bill;card, stage, van, ship, fountain, conveyer;belt;conveyor;belt;conveyer;conveyor;transporter, canopy, washer;automatic;washer;washing;machine, plaything;toy, swimming;pool;swimming;bath;natatorium, stool, barrel;cask, basket;handbasket, waterfall;falls, tent;collapsible;shelter, bag, minibike;motorbike, cradle, oven, ball, food;solid;food, step;stair, tank;storage;tank, trade;name;brand;name;brand;marque, microwave;microwave;oven, pot;flowerpot, animal;animate;being;beast;brute;creature;fauna, bicycle;bike;wheel;cycle, lake, dishwasher;dish;washer;dishwashing;machine, screen;silver;screen;projection;screen, blanket;cover, sculpture, hood;exhaust;hood, sconce, vase, traffic;light;traffic;signal;stoplight, tray, ashcan;trash;can;garbage;can;wastebin;ash;bin;ash-bin;ashbin;dustbin;trash;barrel;trash;bin, fan, pier;wharf;wharfage;dock, crt;screen, plate, monitor;monitoring;device, bulletin;board;notice;board, shower, radiator, glass;drinking;glass, clock, flag]
+
+cat_mapping_ade: {
+  'background': 'other', 
+  'wall': 'wall', 
+  'building;edifice': 'building;edifice', 
+  'sky': 'sky', 
+  'floor;flooring': 'floor;flooring', 
+  'tree': 'tree', 
+  'ceiling': 'ceiling', 
+  'road;route': 'road;route', 
+  'bed': 'bed', 
+  'windowpane;window': 'windowpane;window', 
+  'grass': 'grass', 
+  'cabinet': 'cabinet', 
+  'sidewalk;pavement': 'sidewalk;pavement', 
+  'person;individual;someone;somebody;mortal;soul': 'person;individual;someone;somebody;mortal;soul', 
+  'earth;ground': 'earth;ground', 
+  'door;double;door': 'door;double;door', 
+  'table': 'table', 
+  'mountain;mount': 'mountain;mount', 'plant;flora;plant;life': 'plant;flora;plant;life', 'curtain;drape;drapery;mantle;pall': 'curtain;drape;drapery;mantle;pall', 'chair': 'chair', 'car;auto;automobile;machine;motorcar': 'car;auto;automobile;machine;motorcar', 'water': 'water', 'painting;picture': 'painting;picture', 'sofa;couch;lounge': 'sofa;couch;lounge', 'shelf': 'shelf', 'house': 'house', 'sea': 'sea', 'mirror': 'mirror', 'rug;carpet;carpeting': 'rug;carpet;carpeting', 'field': 'field', 'armchair': 'armchair', 'seat': 'seat', 'fence;fencing': 'fence;fencing', 'desk': 'desk', 'rock;stone': 'rock;stone', 'wardrobe;closet;press': 'wardrobe;closet;press', 'lamp': 'lamp', 'bathtub;bathing;tub;bath;tub': 'bathtub;bathing;tub;bath;tub', 'railing;rail': 'railing;rail', 'cushion': 'cushion', 'base;pedestal;stand': 'base;pedestal;stand', 'box': 'box', 'column;pillar': 'column;pillar', 'signboard;sign': 'signboard;sign', 'chest;of;drawers;chest;bureau;dresser': 'chest;of;drawers;chest;bureau;dresser', 'counter': 'counter', 'sand': 'sand', 'sink': 'sink', 'skyscraper': 'skyscraper', 'fireplace;hearth;open;fireplace': 'fireplace;hearth;open;fireplace', 'refrigerator;icebox': 'refrigerator;icebox', 'grandstand;covered;stand': 'grandstand;covered;stand', 'path': 'path', 'stairs;steps': 'stairs;steps', 'runway': 'runway', 'case;display;case;showcase;vitrine': 'case;display;case;showcase;vitrine', 'pool;table;billiard;table;snooker;table': 'pool;table;billiard;table;snooker;table', 'pillow': 'pillow', 'screen;door;screen': 'screen;door;screen', 'stairway;staircase': 'stairway;staircase', 'river': 'river', 'bridge;span': 'bridge;span', 'bookcase': 'bookcase', 'blind;screen': 'blind;screen', 'coffee;table;cocktail;table': 'coffee;table;cocktail;table', 'toilet;can;commode;crapper;pot;potty;stool;throne': 'toilet;can;commode;crapper;pot;potty;stool;throne', 'flower': 'flower', 'book': 'book', 'hill': 'hill', 'bench': 'bench', 'countertop': 'countertop', 'stove;kitchen;stove;range;kitchen;range;cooking;stove': 'stove;kitchen;stove;range;kitchen;range;cooking;stove', 'palm;palm;tree': 'palm;palm;tree', 'kitchen;island': 'kitchen;island', 'computer;computing;machine;computing;device;data;processor;electronic;computer;information;processing;system': 'computer;computing;machine;computing;device;data;processor;electronic;computer;information;processing;system', 'swivel;chair': 'swivel;chair', 'boat': 'boat', 'bar': 'bar', 'arcade;machine': 'arcade;machine', 'hovel;hut;hutch;shack;shanty': 'hovel;hut;hutch;shack;shanty', 'bus;autobus;coach;charabanc;double-decker;jitney;motorbus;motorcoach;omnibus;passenger;vehicle': 'bus;autobus;coach;charabanc;double-decker;jitney;motorbus;motorcoach;omnibus;passenger;vehicle', 'towel': 'towel', 'light;light;source': 'light;light;source', 'truck;motortruck': 'truck;motortruck', 'tower': 'tower', 'chandelier;pendant;pendent': 'chandelier;pendant;pendent', 'awning;sunshade;sunblind': 'awning;sunshade;sunblind', 'streetlight;street;lamp': 'streetlight;street;lamp', 'booth;cubicle;stall;kiosk': 'booth;cubicle;stall;kiosk', 'television;television;receiver;television;set;tv;tv;set;idiot;box;boob;tube;telly;goggle;box': 'television;television;receiver;television;set;tv;tv;set;idiot;box;boob;tube;telly;goggle;box', 'airplane;aeroplane;plane': 'airplane;aeroplane;plane', 'dirt;track': 'dirt;track', 'apparel;wearing;apparel;dress;clothes': 'apparel;wearing;apparel;dress;clothes', 'pole': 'pole', 'land;ground;soil': 'land;ground;soil', 'bannister;banister;balustrade;balusters;handrail': 'bannister;banister;balustrade;balusters;handrail', 'escalator;moving;staircase;moving;stairway': 'escalator;moving;staircase;moving;stairway', 'ottoman;pouf;pouffe;puff;hassock': 'ottoman;pouf;pouffe;puff;hassock', 'bottle': 'bottle', 'buffet;counter;sideboard': 'buffet;counter;sideboard', 'poster;posting;placard;notice;bill;card': 'poster;posting;placard;notice;bill;card', 'stage': 'stage', 'van': 'van', 'ship': 'ship', 'fountain': 'fountain', 'conveyer;belt;conveyor;belt;conveyer;conveyor;transporter': 'conveyer;belt;conveyor;belt;conveyer;conveyor;transporter', 'canopy': 'canopy', 'washer;automatic;washer;washing;machine': 'washer;automatic;washer;washing;machine', 'plaything;toy': 'plaything;toy', 'swimming;pool;swimming;bath;natatorium': 'swimming;pool;swimming;bath;natatorium', 'stool': 'stool', 'barrel;cask': 'barrel;cask', 'basket;handbasket': 'basket;handbasket', 'waterfall;falls': 'waterfall;falls', 'tent;collapsible;shelter': 'tent;collapsible;shelter', 'bag': 'bag', 'minibike;motorbike': 'minibike;motorbike', 'cradle': 'cradle', 'oven': 'oven', 'ball': 'ball', 'food;solid;food': 'food;solid;food', 'step;stair': 'step;stair', 'tank;storage;tank': 'tank;storage;tank', 'trade;name;brand;name;brand;marque': 'trade;name;brand;name;brand;marque', 'microwave;microwave;oven': 'microwave;microwave;oven', 'pot;flowerpot': 'pot;flowerpot', 'animal;animate;being;beast;brute;creature;fauna': 'animal;animate;being;beast;brute;creature;fauna', 'bicycle;bike;wheel;cycle': 'bicycle;bike;wheel;cycle', 'lake': 'lake', 'dishwasher;dish;washer;dishwashing;machine': 'dishwasher;dish;washer;dishwashing;machine', 'screen;silver;screen;projection;screen': 'screen;silver;screen;projection;screen', 'blanket;cover': 'blanket;cover', 'sculpture': 'sculpture', 'hood;exhaust;hood': 'hood;exhaust;hood', 'sconce': 'sconce', 'vase': 'vase', 'traffic;light;traffic;signal;stoplight': 'traffic;light;traffic;signal;stoplight', 'tray': 'tray', 'ashcan;trash;can;garbage;can;wastebin;ash;bin;ash-bin;ashbin;dustbin;trash;barrel;trash;bin': 'ashcan;trash;can;garbage;can;wastebin;ash;bin;ash-bin;ashbin;dustbin;trash;barrel;trash;bin', 'fan': 'fan', 'pier;wharf;wharfage;dock': 'pier;wharf;wharfage;dock', 'crt;screen': 'crt;screen', 'plate': 'plate', 'monitor;monitoring;device': 'monitor;monitoring;device', 'bulletin;board;notice;board': 'bulletin;board;notice;board', 'shower': 'shower', 'radiator': 'radiator', 'glass;drinking;glass': 'glass;drinking;glass', 'clock': 'clock', 'flag': 'flag'}
+
+
+# 12
+# categories_ade: [
+#   other,
+#   building;edifice,
+#   sky,
+#   floor;flooring,
+#   tree,
+#   bed,
+#   windowpane;window,
+#   person;individual;someone;somebody;mortal;soul,
+#   door;double;door,
+#   table,
+#   chair,
+#   car;auto;automobile;machine;motorcar,
+#   bicycle;bike;wheel;cycle
+# ]
+
+# cat_mapping_ade: {
+#   'background': 'other', 
+#   'wall': 'other',
+#   'building;edifice': 'building;edifice',
+#   'sky': 'sky',
+#   'floor;flooring': 'floor;flooring',
+#   'tree': 'tree',
+#   'ceiling': 'other',
+#   'road;route': 'other',
+#   'bed': 'bed',
+#   'windowpane;window': 'windowpane;window',
+#   'grass': 'other',
+#   'cabinet': 'other',
+#   'sidewalk;pavement': 'other',
+#   'person;individual;someone;somebody;mortal;soul': 'person;individual;someone;somebody;mortal;soul',
+#   'earth;ground': 'other',
+#   'door;double;door': 'door;double;door',
+#   'table': 'table',
+#   'mountain;mount': 'other',
+#   'plant;flora;plant;life': 'other',
+#   'curtain;drape;drapery;mantle;pall': 'other',
+#   'chair': 'chair',
+#   'car;auto;automobile;machine;motorcar': 'car;auto;automobile;machine;motorcar',
+#   'water': 'other',
+#   'painting;picture': 'other',
+#   'sofa;couch;lounge': 'other',
+#   'shelf': 'other',
+#   'house': 'other',
+#   'sea': 'other',
+#   'mirror': 'other',
+#   'rug;carpet;carpeting': 'other',
+#   'field': 'other',
+#   'armchair': 'other',
+#   'seat': 'other',
+#   'fence;fencing': 'other',
+#   'desk': 'other',
+#   'rock;stone': 'other',
+#   'wardrobe;closet;press': 'other',
+#   'lamp': 'other',
+#   'bathtub;bathing;tub;bath;tub': 'other',
+#   'railing;rail': 'other',
+#   'cushion': 'other',
+#   'base;pedestal;stand': 'other',
+#   'box': 'other',
+#   'column;pillar': 'other',
+#   'signboard;sign': 'other',
+#   'chest;of;drawers;chest;bureau;dresser': 'other',
+#   'counter': 'other',
+#   'sand': 'other',
+#   'sink': 'other',
+#   'skyscraper': 'other',
+#   'fireplace;hearth;open;fireplace': 'other',
+#   'refrigerator;icebox': 'other',
+#   'grandstand;covered;stand': 'other',
+#   'path': 'other',
+#   'stairs;steps': 'other',
+#   'runway': 'other',
+#   'case;display;case;showcase;vitrine': 'other',
+#   'pool;table;billiard;table;snooker;table': 'other',
+#   'pillow': 'other',
+#   'screen;door;screen': 'other',
+#   'stairway;staircase': 'other',
+#   'river': 'other',
+#   'bridge;span': 'other',
+#   'bookcase': 'other',
+#   'blind;screen': 'other',
+#   'coffee;table;cocktail;table': 'other',
+#   'toilet;can;commode;crapper;pot;potty;stool;throne': 'other',
+#   'flower': 'other',
+#   'book': 'other',
+#   'hill': 'other',
+#   'bench': 'other',
+#   'countertop': 'other',
+#   'stove;kitchen;stove;range;kitchen;range;cooking;stove': 'other',
+#   'palm;palm;tree': 'other',
+#   'kitchen;island': 'other',
+#   'computer;computing;machine;computing;device;data;processor;electronic;computer;information;processing;system': 'other',
+#   'swivel;chair': 'other',
+#   'boat': 'other',
+#   'bar': 'other',
+#   'arcade;machine': 'other',
+#   'hovel;hut;hutch;shack;shanty': 'other',
+#   'bus;autobus;coach;charabanc;double-decker;jitney;motorbus;motorcoach;omnibus;passenger;vehicle': 'other',
+#   'towel': 'other',
+#   'light;light;source': 'other',
+#   'truck;motortruck': 'other',
+#   'tower': 'other',
+#   'chandelier;pendant;pendent': 'other',
+#   'awning;sunshade;sunblind': 'other',
+#   'streetlight;street;lamp': 'other',
+#   'booth;cubicle;stall;kiosk': 'other',
+#   'television;television;receiver;television;set;tv;tv;set;idiot;box;boob;tube;telly;goggle;box': 'other',
+#   'airplane;aeroplane;plane': 'other',
+#   'dirt;track': 'other',
+#   'apparel;wearing;apparel;dress;clothes': 'other',
+#   'pole': 'other',
+#   'land;ground;soil': 'other',
+#   'bannister;banister;balustrade;balusters;handrail': 'other',
+#   'escalator;moving;staircase;moving;stairway': 'other',
+#   'ottoman;pouf;pouffe;puff;hassock': 'other',
+#   'bottle': 'other',
+#   'buffet;counter;sideboard': 'other',
+#   'poster;posting;placard;notice;bill;card': 'other',
+#   'stage': 'other',
+#   'van': 'other',
+#   'ship': 'other',
+#   'fountain': 'other',
+#   'conveyer;belt;conveyor;belt;conveyer;conveyor;transporter': 'other',
+#   'canopy': 'other',
+#   'washer;automatic;washer;washing;machine': 'other',
+#   'plaything;toy': 'other',
+#   'swimming;pool;swimming;bath;natatorium': 'other',
+#   'stool': 'other',
+#   'barrel;cask': 'other',
+#   'basket;handbasket': 'other',
+#   'waterfall;falls': 'other',
+#   'tent;collapsible;shelter': 'other',
+#   'bag': 'other',
+#   'minibike;motorbike': 'other',
+#   'cradle': 'other',
+#   'oven': 'other',
+#   'ball': 'other',
+#   'food;solid;food': 'other',
+#   'step;stair': 'other',
+#   'tank;storage;tank': 'other',
+#   'trade;name;brand;name;brand;marque': 'other',
+#   'microwave;microwave;oven': 'other',
+#   'pot;flowerpot': 'other',
+#   'animal;animate;being;beast;brute;creature;fauna': 'other',
+#   'bicycle;bike;wheel;cycle': 'bicycle;bike;wheel;cycle',
+#   'lake': 'other',
+#   'dishwasher;dish;washer;dishwashing;machine': 'other',
+#   'screen;silver;screen;projection;screen': 'other',
+#   'blanket;cover': 'other',
+#   'sculpture': 'other',
+#   'hood;exhaust;hood': 'other',
+#   'sconce': 'other',
+#   'vase': 'other',
+#   'traffic;light;traffic;signal;stoplight': 'other',
+#   'tray': 'other',
+#   'ashcan;trash;can;garbage;can;wastebin;ash;bin;ash-bin;ashbin;dustbin;trash;barrel;trash;bin': 'other',
+#   'fan': 'other',
+#   'pier;wharf;wharfage;dock': 'other',
+#   'crt;screen': 'other',
+#   'plate': 'other',
+#   'monitor;monitoring;device': 'other',
+#   'bulletin;board;notice;board': 'other',
+#   'shower': 'other',
+#   'radiator': 'other',
+#   'glass;drinking;glass': 'other',
+#   'clock': 'other',
+#   'flag': 'other',
+# }
+
+# dataset2task: {
+#   'train': {
+#     'scnet_train': 0,
+#     'sun_train': 0,
+#     'transp_train': 1,
+#     'gdd_train': 1,
+#   },
+#   'valid': {
+#     'scnet_val': 0,
+#     'sun_val': 0,
+#     'transp_val': 1,
+#     'gdd_val': 1,
+#   },
+#   'test': {
+#   }
+# }
+
+# Training parameters
+max_epochs: 1
+
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 11

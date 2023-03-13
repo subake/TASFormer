@@ -1,0 +1,51 @@
+# Data paths 
+train_datasets: ['scnet_train']
+dev_datasets: ['scnet_val']
+test_datasets: []
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer
+
+categories: [
+  other,
+  floor,
+]
+
+cat_mapping_scnet: {
+  'Unknown': 'other', 
+  'Bed': 'other', 
+  'Books': 'other', 
+  'Ceiling': 'other', 
+  'Chair': 'other',
+  'Floor': 'floor', 
+  'Furniture': 'other', 
+  'Objects': 'other', 
+  'Picture': 'other',
+  'Sofa': 'other', 
+  'Table': 'other', 
+  'TV': 'other', 
+  'Wall': 'other',
+  'Window': 'other',
+}
+
+dataset2task: {
+  'train': {
+    'scnet_train': 0,
+  },
+  'valid': {
+    'scnet_val': 0,
+  },
+  'test': {
+  }
+}
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 10

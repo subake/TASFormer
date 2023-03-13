@@ -1,0 +1,144 @@
+# Data paths 
+train_datasets: ['scnet_train', 'sun_train', 'transp_train', 'gdd_train']
+dev_datasets: ['scnet_val', 'sun_val', 'transp_val', 'gdd_val']
+test_datasets: []
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer_with_adapter
+
+num_categories: 2
+
+categories_sun: [
+  other,
+  floor,
+]
+
+categories_trans: [
+  other,
+  glass,
+]
+
+categories_scnet: [
+  other,
+  floor,
+]
+
+categories_gdd: [
+  other,
+  glass,
+]
+
+categories_floor: [
+  other,
+  floor,
+]
+
+cat_mapping_floor: {
+  'background': 'other', 
+  'floor': 'floor',
+}
+
+cat_mapping_trans: {
+  'background': 'other', 
+  'shelf': 'glass',
+  'jar or tank': 'glass',
+  'freezer': 'glass',
+  'window': 'glass',
+  'glass door': 'glass', 
+  'eyeglass': 'glass', 
+  'cup': 'glass', 
+  'floor glass': 'glass', 
+  'glass bowl': 'glass',
+  'water bottle': 'glass', 
+  'storage box': 'glass',
+}
+
+cat_mapping_sun: {
+  'wall': 'other',
+  'floor': 'floor',
+  'cabinet': 'other',
+  'bed': 'other',
+  'chair': 'other',
+  'sofa': 'other',
+  'table': 'other',
+  'door': 'other',
+  'window': 'other',
+  'bookshelf': 'other',
+  'picture': 'other',
+  'counter': 'other',
+  'blinds': 'other',
+  'desk': 'other',
+  'shelves': 'other',
+  'curtain': 'other',
+  'dresser': 'other',
+  'pillow': 'other',
+  'mirror': 'other',
+  'floor_mat': 'other',
+  'clothes': 'other',
+  'ceiling': 'other',
+  'books': 'other',
+  'fridge': 'other',
+  'tv': 'other',
+  'paper': 'other',
+  'towel': 'other',
+  'shower_curtain': 'other',
+  'box': 'other',
+  'whiteboard': 'other',
+  'person': 'other',
+  'night_stand': 'other',
+  'toilet': 'other',
+  'sink': 'other',
+  'lamp': 'other',
+  'bathtub': 'other',
+  'bag': 'other',
+}
+
+cat_mapping_gdd: {
+  'background': 'other', 
+  'glass': 'glass'
+}
+
+cat_mapping_scnet: {
+  'Unknown': 'other', 
+  'Bed': 'other', 
+  'Books': 'other', 
+  'Ceiling': 'other', 
+  'Chair': 'other',
+  'Floor': 'floor', 
+  'Furniture': 'other', 
+  'Objects': 'other', 
+  'Picture': 'other',
+  'Sofa': 'other', 
+  'Table': 'other', 
+  'TV': 'other', 
+  'Wall': 'other',
+  'Window': 'other',
+}
+
+dataset2task: {
+  'train': {
+    'scnet_train': 0,
+    'sun_train': 0,
+    'transp_train': 1,
+    'gdd_train': 1,
+  },
+  'valid': {
+    'scnet_val': 0,
+    'sun_val': 0,
+    'transp_val': 1,
+    'gdd_val': 1,
+  },
+  'test': {
+  }
+}
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 3
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 10

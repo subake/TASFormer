@@ -1,0 +1,79 @@
+# Data paths 
+train_datasets: ['sun_train']
+dev_datasets: ['sun_val']
+test_datasets: []
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer_with_task_embedding
+
+num_categories: 2
+
+num_tasks: 2
+
+categories_sun: [
+  other,
+  floor,
+  wall,
+]
+
+cat_mapping_sun: {
+  'wall': 'wall',
+  'floor': 'floor',
+  'cabinet': 'other',
+  'bed': 'other',
+  'chair': 'other',
+  'sofa': 'other',
+  'table': 'other',
+  'door': 'other',
+  'window': 'other',
+  'bookshelf': 'other',
+  'picture': 'other',
+  'counter': 'other',
+  'blinds': 'other',
+  'desk': 'other',
+  'shelves': 'other',
+  'curtain': 'other',
+  'dresser': 'other',
+  'pillow': 'other',
+  'mirror': 'other',
+  'floor_mat': 'other',
+  'clothes': 'other',
+  'ceiling': 'other',
+  'books': 'other',
+  'fridge': 'other',
+  'tv': 'other',
+  'paper': 'other',
+  'towel': 'other',
+  'shower_curtain': 'other',
+  'box': 'other',
+  'whiteboard': 'other',
+  'person': 'other',
+  'night_stand': 'other',
+  'toilet': 'other',
+  'sink': 'other',
+  'lamp': 'other',
+  'bathtub': 'other',
+  'bag': 'other',
+}
+
+# dataset2task: {
+#   'train': {
+#     'sun_train': 0,
+#   },
+#   'valid': {
+#     'sun_val': 0,
+#   },
+#   'test': {
+#   }
+# }
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 5

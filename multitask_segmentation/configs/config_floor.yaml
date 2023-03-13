@@ -1,0 +1,33 @@
+# Data paths 
+train_datasets: []
+dev_datasets: []
+test_datasets: []
+predict_datasets: ['floor_train']
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: two_headed_resnet
+
+num_categories: 2
+
+categories_floor: [
+  other,
+  floor,
+]
+
+cat_mapping_floor: {
+  'background': 'other', 
+  'floor': 'floor',
+}
+
+dataset2task: {
+}
+
+# Training parameters
+max_epochs: 1
+# Number of images from one dataset in batch
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 5

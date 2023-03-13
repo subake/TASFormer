@@ -1,0 +1,40 @@
+# Data paths 
+train_datasets: ['gdd_train']
+dev_datasets: ['gdd_val']
+test_datasets: []
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: segformer
+
+categories: [
+  other,
+  glass,
+]
+
+cat_mapping_gdd: {
+  'background': 'other', 
+  'glass': 'glass'
+}
+
+dataset2task: {
+  'train': {
+    'gdd_train': 0,
+  },
+  'valid': {
+    'gdd_val': 0,
+  },
+  'test': {
+    'gdd_val': 0,
+  }
+}
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 10
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 10

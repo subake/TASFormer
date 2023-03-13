@@ -1,0 +1,67 @@
+# Data paths 
+train_datasets: ['scnet_train', 'gdd_train']
+dev_datasets: ['scnet_val', 'gdd_val']
+test_datasets: ['scnet_val', 'gdd_val']
+predict_datasets: []
+
+# Model parameters
+image_h: 320
+image_w: 320
+backbone: two_headed_resnet
+
+num_categories: 2
+
+categories_scnet: [
+  other,
+  floor,
+]
+
+categories_gdd: [
+  other,
+  glass,
+]
+
+cat_mapping_gdd: {
+  'background': 'other', 
+  'glass': 'glass'
+}
+
+cat_mapping_scnet: {
+  'Unknown': 'other', 
+  'Bed': 'other', 
+  'Books': 'other', 
+  'Ceiling': 'other', 
+  'Chair': 'other',
+  'Floor': 'floor', 
+  'Furniture': 'other', 
+  'Objects': 'other', 
+  'Picture': 'other',
+  'Sofa': 'other', 
+  'Table': 'other', 
+  'TV': 'other', 
+  'Wall': 'other',
+  'Window': 'other',
+}
+
+dataset2task: {
+  'train': {
+    'scnet_train': 0,
+    'gdd_train': 1,
+  },
+  'valid': {
+    'scnet_val': 0,
+    'gdd_val': 1,
+  },
+  'test': {
+    'scnet_val': 0,
+    'gdd_val': 1,
+  }
+}
+
+# Training parameters
+max_epochs: 10
+# Number of images from one dataset in batch
+batch_size: 5
+learning_rate: 0.00005
+random_seed: 42
+log_plot_freq: 5
