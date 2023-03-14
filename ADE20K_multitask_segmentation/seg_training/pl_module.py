@@ -42,21 +42,7 @@ class LitSeg(pl.LightningModule):
             'test': self.hparams.test_datasets
         }
 
-        if self.hparams.backbone == 'two_headed_resnet':
-            self.mask_net = networks.two_headed_fcn_resnet50.SemSegResNet50(
-                num_classes=num_output_channels,
-                dropout=self.hparams.dropout,
-            )
-        elif self.hparams.backbone == 'two_headed_resnet_aux':
-            self.mask_net = networks.two_headed_fcn_resnet50_aux_heads.SemSegResNet50(
-                num_classes=num_output_channels,
-                dropout=self.hparams.dropout,
-            )
-        elif self.hparams.backbone == 'two_headed_segformer':
-            self.mask_net = networks.two_headed_segformer.SegFormer(
-                num_classes=num_output_channels,
-            )
-        elif self.hparams.backbone == 'segformer_with_task_embedding':
+        if self.hparams.backbone == 'segformer_with_task_embedding':
             self.mask_net = networks.segformer_with_task_embedding.SegFormer(
                 num_classes=num_output_channels,
                 num_tasks=self.hparams.num_tasks,
@@ -72,49 +58,6 @@ class LitSeg(pl.LightningModule):
         elif self.hparams.backbone == 'segformer':
             self.mask_net = networks.segformer.SegFormer(
                 num_classes=num_output_channels,
-            )
-        elif self.hparams.backbone == 'resnet':
-            self.mask_net = networks.fcn_resnet50.SemSegResNet50(
-                num_classes=num_output_channels,
-                dropout=self.hparams.dropout,
-            )
-        elif self.hparams.backbone == 'espnet':
-            self.mask_net = networks.espnet.ESPNet(
-                classes=num_output_channels,
-                encoderFile='/home/ML/data/GTA5/espnet_p_2_q_8.pth',
-            )
-        elif  self.hparams.backbone == 'mirrornet': 
-            self.mask_net = networks.mirrornet.MirrorNet(
-                backbone_path='/home/data/MSD/resnext_101_32x4d.pth',
-            )
-        elif self.hparams.backbone == 'liteseg_m':
-            self.mask_net = networks.liteseg_mobilenet.LiteSegMobileNet(
-                n_classes=num_output_channels,
-                pretrained=False,
-            )  
-        elif self.hparams.backbone == 'fastscnn':
-            self.mask_net = networks.fast_scnn.FSCNN(
-                pretrained=False,
-                root=None,
-                num_classes=num_output_channels,
-            ) 
-        elif self.hparams.backbone == 'trans2seg':
-            self.mask_net = networks.trans2seg.Trans2Seg(
-                pretrained=False,
-                root=None,
-                num_classes=num_output_channels,
-            )
-        elif self.hparams.backbone == 'translab':
-            self.mask_net = networks.translab.TransLab(
-                pretrained=False,
-                root=None,
-                num_classes=num_output_channels,
-            )
-        elif self.hparams.backbone == 'deeplabv3_plus':
-            self.mask_net = networks.deeplabv3_plus.Deeplabv3_plus(
-                num_classes=num_output_channels,
-                backend=self.hparams.backend,
-                dropout=self.hparams.dropout,
             ) 
         else:
             raise BaseException('backbone must be [resnet, espnet, mirrornet, liteseg_m, fastscnn, trans2seg, translab, pspnet, deeplabv3_plus]')
@@ -125,12 +68,6 @@ class LitSeg(pl.LightningModule):
         else:
             self.loss_fn = nn.CrossEntropyLoss()
         
-        if self.hparams.backbone == 'trans2seg':
-            self.loss_fn = get_segmentation_loss()
-        
-        if self.hparams.backbone == 'translab':
-            self.loss_fn = get_segmentation_loss(model='translab')
-
     @staticmethod
     def add_argparse_args(parent_parser):
         parser = parent_parser.add_argument_group("Model Parameters")
@@ -217,21 +154,11 @@ class LitSeg(pl.LightningModule):
                 outp = self.mask_net(cur_batch['image'])
                 mask_logits = outp['out'][cur_task]
 
-            if (self.hparams.backbone == 'trans2seg') or (self.hparams.backbone == 'translab'):
-                loss = self.loss_fn(mask_logits[cur_task], cur_batch['mask'].long())['loss']
-            elif cat_num <= 2:
+            if cat_num <= 2:
                 cur_loss = self.loss_fn(mask_logits[:, 0], cur_batch['mask'].to(torch.float32))
             else:
                 cur_loss = self.loss_fn(mask_logits[cur_task], cur_batch['mask'].long())
-            loss += cur_loss
-
-            if self.hparams.backbone == 'two_headed_resnet_aux':
-                aux_mask_logits = outp['aux'][cur_task]
-                if cat_num <= 2:
-                    cur_aux_loss = self.loss_fn(aux_mask_logits[:, 0], cur_batch['mask'].to(torch.float32))
-                else:
-                    cur_loss = self.loss_fn(aux_mask_logits, cur_batch['mask'].long())
-                loss += 0.7 * cur_aux_loss
+            loss += cur_los
 
             self.log(f'{self.dataset_names[mode][i]}/loss', cur_loss)
         
@@ -261,14 +188,7 @@ class LitSeg(pl.LightningModule):
 
             mask = mask_logits
         
-        if (self.hparams.backbone == 'trans2seg') or (self.hparams.backbone == 'translab'):
-            mask_logits_list = self.mask_net(batch['image'])
-            loss = self.loss_fn(mask_logits_list, batch['mask'].long())['loss']
-
-            # Compute IoU metric
-            mask_iou = mask.detach().cpu().to(torch.float32)
-            batch_iou = batch['mask'].detach().cpu().to(torch.int64)
-        elif cat_num <= 2:
+        if cat_num <= 2:
             # Compute loss
             loss = self.loss_fn(mask_logits[:, 0], batch['mask'].to(torch.float32))
 
