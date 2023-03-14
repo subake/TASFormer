@@ -24,11 +24,13 @@ This repo contains the code for our paper **TASFormer: Task-aware Image Segmenta
 
 ## Notes
 
- [multitask_segmentation/](multitask_segmentation/) contains codes and configs for GDD, Sun, SceneNet and Trans10k datasets.
+[multitask_segmentation/](multitask_segmentation/) contains codes and configs for GDD, Sun, SceneNet and Trans10k datasets.
 
 [ADE20K_multitask_segmentation/](ADE20K_multitask_segmentation/) contains codes and configs for ADE20K dataset.
 
 [transformers_update_for_adapters/](transformers_update_for_adapters/) contains files required for `TASFormer (HF adapter)` and `TASFormer (HF adapter++)`.
+
+You can find $bIoU$ metric implementation inside `validation_step()` in [pl_module.py](ADE20K_multitask_segmentation/seg_training/pl_module.py). Keep in mind, our TASFormer model works with binary masks, and averaging is performed over all masks, regardless of their class. More details about $bIoU$ metric can be found in our [Paper](). 
 
 ## Installation Instructions
 
