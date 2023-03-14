@@ -2,7 +2,7 @@
 
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/) ![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-[Dmitry Yudin](), [Aleksandr Khorin](https://www.linkedin.com/in/alex-khorin/), [Tatiana Zemskova](), [Darya Ovchinnikova]()
+
 
 [[`arXiv`]()] [[`pdf`]()] [[`BibTeX`](#citation)]
 
@@ -70,7 +70,7 @@ Results for glass and floor segmentation, $bIoU$, %.
 
 ### ADE20K
 
-Segmentation results on different number of categories from ADE20K dataset, $bIoU$, %.
+Segmentation results on different `Num Classes` from ADE20K dataset, $bIoU$, %.
 
 | Method | Params | Crop Size | 2 | 12 | 150 |
 |   :---:|  :---:           | :---:               | :---:   |  :---: |    :---:   |
@@ -95,9 +95,9 @@ Segmentation results of TASFormer (HF adapter) with different `Crop Size` on ADE
 If you found our TASFormer useful, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
 
 ```bibtex
-@inproceedings{yudin2023tasformer,
+@inproceedings{2023tasformer,
       title={{TASFormer: Task-aware Image Segmentation Transformer}},
-      author={Dmitry Yudin and Aleksandr Khorin and Tatiana Zemskova and Darya Ovchinnikova},
+      author={-},
       journal={ICCV}, 
       year={2023}
     }
