@@ -18,8 +18,6 @@ This repo contains the code for our paper **TASFormer: Task-aware Image Segmenta
     - [Evaluation](#evaluation)
 6. [Results](#results)
 
-## News
-
 ## Notes
 
 [multitask_segmentation/](multitask_segmentation/) contains codes and configs for GDD, Sun, SceneNet and Trans10k datasets.
