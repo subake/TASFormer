@@ -60,7 +60,7 @@ class LitSeg(pl.LightningModule):
                 num_classes=num_output_channels,
             ) 
         else:
-            raise BaseException('backbone must be [resnet, espnet, mirrornet, liteseg_m, fastscnn, trans2seg, translab, pspnet, deeplabv3_plus]')
+            raise BaseException('backbone must be [segformer, segformer_with_task_embedding, segformer_with_vsa_task_embedding, segformer_with_adapter]')
 
         # Losses
         if num_output_channels <= 2:
