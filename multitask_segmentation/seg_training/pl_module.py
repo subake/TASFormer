@@ -15,6 +15,8 @@ from . import networks
 from .utils import visualization
 
 import time
+import matplotlib.pyplot as plt
+
 
 class LitSeg(pl.LightningModule):
     def __init__(
@@ -102,15 +104,15 @@ class LitSeg(pl.LightningModule):
             ) 
         elif self.hparams.backbone == 'trans2seg':
             self.mask_net = networks.trans2seg.Trans2Seg(
-                # pretrained=False,
-                # root=None,
-                # num_classes=num_output_channels,
+                pretrained=False,
+                root=None,
+                num_classes=num_output_channels,
             )
         elif self.hparams.backbone == 'translab':
             self.mask_net = networks.translab.TransLab(
-                # pretrained=False,
-                # root=None,
-                # num_classes=num_output_channels,
+                pretrained=False,
+                root=None,
+                num_classes=num_output_channels,
             )
         elif self.hparams.backbone == 'deeplabv3_plus':
             self.mask_net = networks.deeplabv3_plus.Deeplabv3_plus(
@@ -176,7 +178,6 @@ class LitSeg(pl.LightningModule):
         return mask
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
-        import matplotlib.pyplot as plt
         cat_num = self.num_output_channels
         if cat_num == 1:
             cat_num += 1
@@ -291,7 +292,6 @@ class LitSeg(pl.LightningModule):
 
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0, mode='valid'):
-        import matplotlib.pyplot as plt
         cat_num = self.num_output_channels
         if cat_num == 1:
             cat_num += 1
@@ -368,9 +368,6 @@ class LitSeg(pl.LightningModule):
 
             axes[1].set_title('Predicted mask')
             axes[1].imshow(seg_mask_preds, aspect='auto')
-
-            #axes[2].set_title('Predicted mask 2')
-            #axes[2].imshow(seg_mask_preds[1], aspect='auto')
 
             axes[2].set_title('Ground truth mask')
             axes[2].imshow(seg_mask_gt, aspect='auto')

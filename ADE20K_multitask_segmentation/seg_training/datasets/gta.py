@@ -9,8 +9,6 @@ from torch.utils.data import DataLoader
 import albumentations as A
 import pytorch_lightning as pl
 
-#from pycocotools.coco import COCO
-
 import nnio
 import re
 import json
@@ -18,7 +16,6 @@ import os, sys
 
 from PIL import Image
 
-#from . import scenenet_pb2 as sn
 
 class GTA5Dataset(torch.utils.data.Dataset):
     '''

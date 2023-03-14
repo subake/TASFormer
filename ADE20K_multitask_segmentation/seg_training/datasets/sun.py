@@ -9,8 +9,6 @@ from torch.utils.data import DataLoader
 import albumentations as A
 import pytorch_lightning as pl
 
-#from pycocotools.coco import COCO
-
 import nnio
 import re
 import json
@@ -120,7 +118,6 @@ class SUNDataset(torch.utils.data.Dataset):
             sun_to_classid[idx + 1] = cat2id[i]
 
         self.SUN_TO_CLASS = sun_to_classid
-        # print(self.SUN_TO_CLASS)
         
         images_folder = os.path.join(path, 'images')
         masks_folder = os.path.join(path, 'labels')

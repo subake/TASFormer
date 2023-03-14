@@ -42,12 +42,6 @@ class LitSeg(pl.LightningModule):
             'test': self.hparams.test_datasets
         }
 
-#         self.dl2task = {}
-#         for mode, datasets in self.dataset_names.items():
-#             self.dl2task[mode] = {}
-#             for i, dataset in enumerate(datasets):
-#                 self.dl2task[mode][i] = self.hparams.dataset2task[mode][dataset]
-
         if self.hparams.backbone == 'two_headed_resnet':
             self.mask_net = networks.two_headed_fcn_resnet50.SemSegResNet50(
                 num_classes=num_output_channels,
@@ -106,15 +100,15 @@ class LitSeg(pl.LightningModule):
             ) 
         elif self.hparams.backbone == 'trans2seg':
             self.mask_net = networks.trans2seg.Trans2Seg(
-                # pretrained=False,
-                # root=None,
-                # num_classes=num_output_channels,
+                pretrained=False,
+                root=None,
+                num_classes=num_output_channels,
             )
         elif self.hparams.backbone == 'translab':
             self.mask_net = networks.translab.TransLab(
-                # pretrained=False,
-                # root=None,
-                # num_classes=num_output_channels,
+                pretrained=False,
+                root=None,
+                num_classes=num_output_channels,
             )
         elif self.hparams.backbone == 'deeplabv3_plus':
             self.mask_net = networks.deeplabv3_plus.Deeplabv3_plus(
@@ -326,9 +320,6 @@ class LitSeg(pl.LightningModule):
 
             axes[1].set_title('Predicted mask')
             axes[1].imshow(seg_mask_preds, aspect='auto')
-
-            #axes[2].set_title('Predicted mask 2')
-            #axes[2].imshow(seg_mask_preds[1], aspect='auto')
 
             axes[2].set_title('Ground truth mask')
             axes[2].imshow(seg_mask_gt, aspect='auto')

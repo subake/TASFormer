@@ -216,8 +216,6 @@ class SegDataModule(pl.LightningDataModule):
         elif cfg['type'] == 'gdd':
             return gdd.GDDDataset(
                 path=cfg['path'],
-                # image_h = self.config.image_h,
-                # image_w = self.config.image_w,
                 augmentations=augmentations,
                 categories=self.config.categories_gdd,
                 cat_mapping=self.config.cat_mapping_gdd
@@ -236,7 +234,6 @@ class SegDataModule(pl.LightningDataModule):
         # Create training dataset
         if self.train_dataset is None:
             self.train_datasets = [
-                #torch.utils.data.ConcatDataset([
                 self.select_dataset(
                     self.data_config[ds],
                     augmentations=self.augmentations,

@@ -1,5 +1,5 @@
 '''
-Training script
+Inference script
 '''
 
 import argparse
@@ -82,5 +82,5 @@ if __name__ == '__main__':
 check out this bug https://github.com/matplotlib/matplotlib/issues/17379'''
         )
 
-    # Run program
+    # Run
     main(args)

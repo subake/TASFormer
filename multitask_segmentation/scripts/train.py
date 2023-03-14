@@ -23,7 +23,6 @@ def main(config):
 
     # Create lit module
     if config.load_from is not None:
-        #lit_module = seg_training.pl_module.LitSeg.load_from_checkpoint(checkpoint_path=config.load_from)
         lit_module = lit_module = seg_training.pl_module.LitSeg(**config.__dict__)
         lit_module.load_state_dict(torch.load(config.load_from)["state_dict"], strict=False)
     else:
@@ -35,9 +34,6 @@ def main(config):
         logger=logger,
         multiple_trainloader_mode='max_size_cycle',
     )
-
-    # Train model
-    # pylint: disable=no-member
 
     trainer.fit(
         lit_module,
@@ -60,13 +56,6 @@ def main(config):
             lit_module,
             datamodule=data_module,
         )
-
-    # Predict
-    #if len(config.predict_datasets) > 0:
-    #    trainer.predict(
-    #        lit_module, 
-    #        datamodule=data_module
-    #    )
 
 
 if __name__ == '__main__':
@@ -108,5 +97,5 @@ if __name__ == '__main__':
 check out this bug https://github.com/matplotlib/matplotlib/issues/17379'''
         )
 
-    # Run program
+    # Run
     main(args)

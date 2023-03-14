@@ -92,7 +92,6 @@ class GDDDataset(torch.utils.data.Dataset):
         # Load image
         image = np.array(Image.open(self.image_paths[item]))
         mask = (np.array(Image.open(self.masks_path[item]))//255)
-        # .astype('float32') # cделать лучше
         # Resize image, mask
         image = cv2.resize(image, dsize=(320, 320))
         mask = cv2.resize(mask, dsize=(320, 320), interpolation=cv2.INTER_NEAREST)

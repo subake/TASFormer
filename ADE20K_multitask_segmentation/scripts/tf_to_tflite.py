@@ -34,7 +34,6 @@ def main(args):
 
     rep_dataset = SimpleDataset(
         args.dataset_path,
-        #image_h=320, image_w=320,
         imread=nnio.Preprocessing(
             resize=(320,320),
             batch_dimension=True,
@@ -46,7 +45,6 @@ def main(args):
     converter = tf.compat.v1.lite.TFLiteConverter.from_saved_model(args.load_from)
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
-    # converter.target_spec.supported_types = [tf.int8]
     def representative_dataset_gen():
         for i in tqdm(range(min(len(rep_dataset), 200))):
             # Get sample input data as a numpy array in a method of your choosing.

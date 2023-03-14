@@ -1,6 +1,10 @@
 import torch
 import torch.nn as nn
 import torchvision
+
+# For segformer_with_adapter you additionally have to manually update files inside 
+# anaconda3/envs/tasformer/lib/python3.8/site-packages/transformers/models/segformer/ 
+# with files from transformers_update_for_adapters/hf/ or transformers_update_for_adapters/hf++/
 from transformers import SegformerForSemanticSegmentation
 from transformers import SegformerDecodeHead
 

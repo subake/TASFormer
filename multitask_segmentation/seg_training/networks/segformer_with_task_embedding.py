@@ -29,7 +29,6 @@ class SegFormer(nn.Module):
         self.segformer_decoder = SegformerDecodeHead.from_pretrained(
             "nvidia/mit-b0",
             num_labels=num_classes,
-            # output_hidden_states=True
         )
         self.linear_c = torch.nn.ModuleList(list(self.segformer_decoder.children())[0])
 

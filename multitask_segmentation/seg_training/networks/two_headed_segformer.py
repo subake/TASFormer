@@ -1,7 +1,5 @@
-# import os
 import torch
 import torch.nn as nn
-# import torch.nn.functional as F
 import torchvision
 from transformers import SegformerForSemanticSegmentation
 from transformers import SegformerDecodeHead

@@ -9,8 +9,6 @@ from torch.utils.data import DataLoader
 import albumentations as A
 import pytorch_lightning as pl
 
-#from pycocotools.coco import COCO
-
 import nnio
 import re
 import json

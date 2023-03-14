@@ -18,7 +18,6 @@ import os, sys
 
 from PIL import Image
 
-#from . import scenenet_pb2 as sn
 
 class GlassDataset(torch.utils.data.Dataset):
     '''

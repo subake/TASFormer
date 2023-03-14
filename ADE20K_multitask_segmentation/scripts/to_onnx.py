@@ -90,23 +90,7 @@ preprocessing = nnio.Preprocessing(
         do_constant_folding=True,
         input_names = ['image'],
         output_names = ['mask'],
-        #dynamic_axes={ # variable length axes
-        #   'image': {0: 'batch_size', 2: 'height', 3: 'width'},
-        #  'mask': {0 : 'batch_size', 1: 'output_height', 2: 'output_width'}
-        #}
-
     )
-
-    # Convert model to torchscript
-    # with torch.jit.optimized_execution(True):
-    #     # Save in full precision
-    #     model = torch.jit.script(lit_module)
-    #     ts_model_path = os.path.join(out_path, f'{config.out_name}.pt')
-    #     model.save(ts_model_path)
-    #     # Save in half precision
-    #     model = torch.jit.script(lit_module.half())
-    #     ts_model_path = os.path.join(out_path, f'{config.out_name}_half.pt')
-    #     model.save(ts_model_path)
 
     # Check model
     onnx_model = onnx.load(onnx_model_path)
