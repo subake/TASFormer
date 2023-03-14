@@ -4,7 +4,7 @@
 
 Codes and configs for ADE20K dataset are located in `ADE20K_multitask_segmentation/`.
 
-Please, update path to dataset inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/ADE20K_multitask_segmentation/configs/datasets%5Bcds2%5D.yaml)
+Please, update path to dataset inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/ADE20K_multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
 
 ```text
 # ADE20K dataset
@@ -37,7 +37,7 @@ You can check [ade.py](https://github.com/subake/TASFormer/blob/main/ADE20K_mult
 
 Codes and configs for these datasets are located in `multitask_segmentation/`.
 
-Please, update path to datasets inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/multitask_segmentation/configs/datasets%5Bcds2%5D.yaml)
+Please, update path to datasets inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
 
 ```text
 # SceneNet dataset

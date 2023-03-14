@@ -13,7 +13,7 @@ We use an evironment with the following specifications, packages and dependencie
 
 ## Setup Instructions
 
-- Create a conda environment
+- Create a conda environment.
   
   ```bash
   conda create --name tasformer python=3.8 -y

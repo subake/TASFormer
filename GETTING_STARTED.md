@@ -25,15 +25,15 @@ cd multitask_segmentation/
   python3 setup.py bdist_wheel; pip3 install --force-reinstall --no-deps dist/*.whl
   ```
 
-- We provide a script `scripts/train.py`, that is made to train all the configs provided in OneFormer.
+- We provide a script `scripts/train.py`, that is made to train all the configs provided in TASFormer.
 
 - To train a model, first setup the corresponding dataset config. For example, [configs/config_ade.yaml](https://github.com/subake/TASFormer/blob/main/ADE20K_multitask_segmentation/configs/config_ade.yaml).
 
 - You can setup training hyperparameters and select model configuration. Available options: `segformer`, `segformer_with_vsa_task_embedding`, `segformer_with_task_embedding` and `segformer_with_adapter`.
 
 - For `segformer_with_adapter` you additionally have to manually update files inside `anaconda3/envs/tasformer/lib/python3.8/site-packages/transformers/models/segformer/` with files from:
-  - [transformers_update_for_adapters/hf/](https://github.com/subake/TASFormer/tree/main/transformers_update_for_adapters/hf) for TASFormer (HF adapter)
-  - [transformers_update_for_adapters/hf++/](https://github.com/subake/TASFormer/tree/main/transformers_update_for_adapters/hf%2B%2B) for TASFormer (HF adapter++)
+  - [transformers_update_for_adapters/hf/](https://github.com/subake/TASFormer/tree/main/transformers_update_for_adapters/hf) for TASFormer (HF adapter),
+  - [transformers_update_for_adapters/hf++/](https://github.com/subake/TASFormer/tree/main/transformers_update_for_adapters/hf%2B%2B) for TASFormer (HF adapter++).
 
 - To train model, use:
 

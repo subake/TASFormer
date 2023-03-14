@@ -4,7 +4,7 @@
 
 [Dmitry Yudin](), [Aleksandr Khorin](https://www.linkedin.com/in/alex-khorin/), [Tatiana Zemskova](), [Darya Ovchinnikova]()
 
-[[`arXiv`]()] [[`pdf`]()] [[`BibTeX`](#4citation)]
+[[`arXiv`]()] [[`pdf`]()] [[`BibTeX`](#citation)]
 
 This repo contains the code for our paper **TASFormer: Task-aware Image Segmentation Transformer**.
 
