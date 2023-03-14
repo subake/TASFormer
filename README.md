@@ -4,13 +4,12 @@
 
 
 
-[[`arXiv`]()] [[`pdf`]()] [[`BibTeX`](#citation)]
+[[`arXiv`]()] [[`pdf`]()] [[`BibTeX`]()]
 
 This repo contains the code for our paper **TASFormer: Task-aware Image Segmentation Transformer**.
 
 ## Contents
 
-1. [News](#news)
 2. [Notes](#notes)
 3. [Installation Instructions](#installation-instructions)
 4. [Dataset Preparation](#dataset-preparation)
@@ -18,7 +17,6 @@ This repo contains the code for our paper **TASFormer: Task-aware Image Segmenta
     - [Training](#training)
     - [Evaluation](#evaluation)
 6. [Results](#results)
-7. [Citation](#citation)
 
 ## News
 
@@ -91,16 +89,3 @@ Segmentation results of TASFormer (HF adapter) with different `Crop Size` on ADE
 | TASFormer (HF adapter) | 7.3M | 320&times;320 | 65.3 |
 | TASFormer (HF adapter) | 7.3M | 640&times;640 | 67.8 |
 | TASFormer (HF adapter) | 7.3M | 896&times;896 | **68.9** |
-
-## Citation
-
-If you found our TASFormer useful, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
-
-```bibtex
-@inproceedings{2023tasformer,
-      title={{TASFormer: Task-aware Image Segmentation Transformer}},
-      author={-},
-      journal={ICCV}, 
-      year={2023}
-    }
-```
