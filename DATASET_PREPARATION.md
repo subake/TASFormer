@@ -4,7 +4,7 @@
 
 Codes and configs for ADE20K dataset are located in `ADE20K_multitask_segmentation/`.
 
-Please, update path to dataset inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/ADE20K_multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
+Please, update path to dataset inside [datasets[machine_name].yaml](ADE20K_multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
 
 ```text
 # ADE20K dataset
@@ -30,14 +30,14 @@ ADE20K/
     validation/
 ```
 
-You can check [ade.py](https://github.com/subake/TASFormer/blob/main/ADE20K_multitask_segmentation/seg_training/datasets/ade.py) to modify ADE data processing and for more details. 
+You can check [ade.py](ADE20K_multitask_segmentation/seg_training/datasets/ade.py) to modify ADE data processing and for more details. 
 
 
 ## [GDD](), [Sun](), [SceneNet](), [Trans10k]()
 
 Codes and configs for these datasets are located in `multitask_segmentation/`.
 
-Please, update path to datasets inside [datasets[machine_name].yaml](https://github.com/subake/TASFormer/blob/main/multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
+Please, update path to datasets inside [datasets[machine_name].yaml](multitask_segmentation/configs/datasets%5Bcds2%5D.yaml).
 
 ```text
 # SceneNet dataset
@@ -56,4 +56,4 @@ scnet_val:
 
 ### Expected dataset structure
 
-You can check `dataset_name.py` inside [datasets/](https://github.com/subake/TASFormer/tree/main/multitask_segmentation/seg_training/datasets) for detailed information about dataset structure, more details and to modify data processing. 
+You can check `dataset_name.py` inside [datasets/](multitask_segmentation/seg_training/datasets) for detailed information about dataset structure, more details and to modify data processing. 

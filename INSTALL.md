@@ -23,7 +23,7 @@ We use an evironment with the following specifications, packages and dependencie
 - Install packages and other dependencies.
 
   ```bash
-  git clone https://github.com/subake/TASFormer.git
+  git clone https://github.com/TASFormer.git
   cd TASFormer
 
   # Install Pytorch

@@ -24,11 +24,11 @@ This repo contains the code for our paper **TASFormer: Task-aware Image Segmenta
 
 ## Notes
 
- `multitask_segmentation/` contains codes and configs for GDD, Sun, SceneNet and Trans10k datasets.
+ [multitask_segmentation/](multitask_segmentation/) contains codes and configs for GDD, Sun, SceneNet and Trans10k datasets.
 
-`ADE20K_multitask_segmentation/` contains codes and configs for ADE20K dataset.
+[ADE20K_multitask_segmentation/](ADE20K_multitask_segmentation/) contains codes and configs for ADE20K dataset.
 
-`transformers_update_for_adapters/` contains files required for `TASFormer (HF adapter)` and `TASFormer (HF adapter++)`.
+[transformers_update_for_adapters/](transformers_update_for_adapters/) contains files required for `TASFormer (HF adapter)` and `TASFormer (HF adapter++)`.
 
 ## Installation Instructions
 
