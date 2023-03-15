@@ -1,0 +1,89 @@
+# COCO dataset
+coco_test_2017:
+  type: coco
+  path: /home/ML/data/coco/test2017
+coco_train_2017:
+  type: coco
+  path: /home/ML/data/coco/train2017
+coco_val_2017:
+  type: coco
+  path: /home/ML/data/coco/val2017
+
+# GDD dataset
+gdd_train:
+  type: gdd
+  path: /home/data/GDD/train
+gdd_val:
+  type: gdd
+  path: /home/data/GDD/test
+
+
+# Trans10k dataset
+transp_train:
+  type: transp
+  path: /home/data/Trans10K_cls12
+  split: train
+transp_val:
+  type: transp
+  path: /home/data/Trans10K_cls12
+  split: val
+  
+# ADE20K dataset
+ade_train:
+  type: ade
+  path: /home/data/ADE20K
+  split: train
+ade_val:
+  type: ade
+  path: /home/data/ADE20K
+  split: val
+
+# SUN dataset
+sun_train:
+  type: sun
+  path: /home/data/sun/train
+  split: train
+
+sun_val:
+  type: sun
+  path: /home/data/sun/test
+  split: val
+
+# Floor dataset
+floor_train:
+  type: floor
+  path: /home/ML-Training/data/floor
+
+# Glass dataset
+glass_train:
+  type: glass
+  path: /home/ML-Training/data/glass
+
+# SceneNet dataset
+scnet_train:
+  type: scnet
+  path: '/home/data/sn/train'
+  protobuf_path: '/home/data/sn/train/scenenet_rgbd_train_0.pb'
+  path_to_classes: '/home/data/sn/wnid_to_classes.txt'
+
+scnet_val:
+  type: scnet
+  path: '/home/data/sn/val'
+  protobuf_path: '/home/data/sn/val/scenenet_rgbd_val.pb'
+  path_to_classes: '/home/data/sn/wnid_to_classes.txt'
+
+# CityScapes dataset
+city_train:
+  type: city
+  path: /home/ML/data/CityScapes
+  split: train
+
+city_val:
+  type: city
+  path: /home/ML/data/CityScapes
+  split: val
+
+city_test:
+  type: city
+  path: /home/ML/data/CityScapes
+  split: test
