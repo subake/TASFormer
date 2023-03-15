@@ -7,7 +7,7 @@ predict_datasets: []
 # Model parameters
 image_h: 320
 image_w: 320
-backbone: segformer_with_adapter
+backbone: tasformer_with_adapter
 
 num_categories: 2
 

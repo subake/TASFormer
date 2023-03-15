@@ -9,9 +9,9 @@ predict_save_path: '/home/Work/TASFormer/ADE20K_multitask_segmentation/results/a
 # Model parameters
 image_h: 320
 image_w: 320
-backbone: segformer_with_adapter
-# segformer_with_task_embedding
-# segformer_with_vsa_task_embedding
+backbone: tasformer_with_adapter
+# tasformer_with_task_embedding
+# tasformer_with_vsa_task_embedding
 
 num_categories: 2
 
