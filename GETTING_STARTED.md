@@ -22,7 +22,7 @@ cd multitask_segmentation/
 - Before first run and after making changes inside [seg_training/](ADE20K_multitask_segmentation/seg_training/) make shure to update the environment.
 
   ```bash
-  python3 setup.py bdist_wheel; pip3 install --force-reinstall --no-deps dist/*.whl
+  sh setup.sh
   ```
 
 - We provide a script [scripts/train.py](ADE20K_multitask_segmentation/scripts/train.py), that is made to train all the configs provided in TASFormer.
