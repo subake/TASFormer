@@ -20,11 +20,11 @@ def get_version(rel_path):
 setup(
     name='seg_training',
     version=get_version('seg_training/__init__.py'),
-    description='2D Segmentation in Pytorch',
-    long_description='2D Segmentation in Pytorch',
+    description='TASFormer',
+    long_description='TASFormer',
     long_description_content_type='text/markdown',
-    author='Ruslan Baynazarov',
-    author_email='ruslan.baynazarov@fastsense.tech',
+    author='',
+    author_email='',
     url='',
     packages=[
         'seg_training',
