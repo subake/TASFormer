@@ -46,7 +46,7 @@ python3 scripts/train.py --config configs/config_ade.yaml \
 
 ## Inference
 
-- You can download pretrained models from [Google Drive](https://drive.google.com/drive/folders/1at7LJZdFHpxQukhDvpf7xfctBCiFCOxg?usp=sharing) (See Table below).
+- You can download pretrained models from [Google Drive](#pretrained-models) (See Table below).
 
 - To inference a model, first setup the corresponding dataset config. For example, [configs/config_ade.yaml](ADE20K_multitask_segmentation/configs/config_ade.yaml).
 
