@@ -29,9 +29,9 @@ cd multitask_segmentation/
 
 - To train a model, first setup the corresponding dataset config. For example, [configs/config_ade.yaml](ADE20K_multitask_segmentation/configs/config_ade.yaml).
 
-- You can setup training hyperparameters and select model configuration. Available backbone options: `segformer`, `segformer_with_vsa_task_embedding`, `segformer_with_task_embedding` and `segformer_with_adapter`.
+- You can setup training hyperparameters and select model configuration. Available backbone options: `segformer`, `tasformer_with_vsa_task_embedding`, `tasformer_with_task_embedding` and `tasformer_with_adapter`.
 
-- For `segformer_with_adapter` you additionally have to manually update files inside `anaconda3/envs/tasformer/lib/python3.8/site-packages/transformers/models/segformer/` with files from:
+- For `tasformer_with_adapter` you additionally have to manually update files inside `anaconda3/envs/tasformer/lib/python3.8/site-packages/transformers/models/segformer/` with files from:
   - [transformers_update_for_adapters/hf/](transformers_update_for_adapters/hf/) for TASFormer (HF adapter),
   - [transformers_update_for_adapters/hf++/](transformers_update_for_adapters/hf%2B%2B/) for TASFormer (HF adapter++).
 
@@ -41,7 +41,7 @@ cd multitask_segmentation/
 python3 scripts/train.py --config configs/config_ade.yaml \
     --accelerator gpu --devices 1, \
     --wandb_project tasformer \
-    --name "segformer_with_adapter++_ade_150"
+    --name "tasformer_with_adapter++_ade_150"
 ```
 
 ## Inference
@@ -56,8 +56,8 @@ python3 scripts/train.py --config configs/config_ade.yaml \
 python3 scripts/inference.py --config configs/config_ade.yaml \
     --accelerator gpu --devices 1, \
     --wandb_project tasformer \
-    --name "segformer_with_adapter++_ade_150_predict" \
-    --load_from ./model_segformer_with_adapter++_ade_150.ckpt 
+    --name "tasformer_with_adapter++_ade_150_predict" \
+    --load_from ./model_tasformer_with_adapter++_ade_150.ckpt 
 ```
 
 ## Pretrained Models 
