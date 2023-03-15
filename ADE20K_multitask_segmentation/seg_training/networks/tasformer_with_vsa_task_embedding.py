@@ -4,14 +4,19 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 import torchvision
+import numpy as np
 import math
 
+def generate_embedding(dim):
+    emb = np.random.randn(dim)
+    emb /= np.linalg.norm(emb)
+    return emb
 
-class SegFormer(nn.Module):
+
+class TASFormerVSAEmbedding(nn.Module):
     def __init__(
         self,
         num_classes,
-        num_tasks,
     ):
         super().__init__()
         # Normalization layer
@@ -20,7 +25,7 @@ class SegFormer(nn.Module):
             std=[0.229, 0.224, 0.225]
         )
 
-        # Load pretrained segformer
+        # Load pretrained model
         self.segformer_model = SegformerModel.from_pretrained(
             "nvidia/mit-b0",
             num_labels=num_classes,
@@ -47,11 +52,9 @@ class SegFormer(nn.Module):
         self.dropout = nn.Dropout(config.classifier_dropout_prob)
         self.classifier = nn.Conv2d(config.decoder_hidden_size, config.num_labels, kernel_size=1)
         
-        self.task_embeddings = []
-        for _ in range(num_tasks):
-            self.task_embeddings.append(nn.parameter.Parameter(data=torch.zeros(1, 10, 320//4, 320//4), requires_grad=True))
-            self.task_embeddings[-1].data.normal_(std=0.13)
-        self.task_embeddings = nn.ParameterList(self.task_embeddings)
+        self.dim = 80 * 80 * 10
+        self.task_emb_1 = nn.parameter.Parameter(data=torch.from_numpy(generate_embedding(self.dim).reshape((1, 10, 80, 80))).type(torch.FloatTensor), requires_grad=False)
+        self.task_emb_2 = nn.parameter.Parameter(data=torch.from_numpy(generate_embedding(self.dim).reshape((1, 10, 80, 80))).type(torch.FloatTensor), requires_grad=False)
 
         self.config = config
 
@@ -85,16 +88,19 @@ class SegFormer(nn.Module):
                 encoder_hidden_state, size=encoder_hidden_states[0].size()[2:], mode="bilinear", align_corners=False
             )
             all_hidden_states += (encoder_hidden_state,)
-            
-        all_hidden_states += (self.task_embeddings[task_num - 1].repeat(batch_size, 1, 1, 1),)
+
+        if task_num == 1:
+            all_hidden_states += (self.task_emb_1.repeat(batch_size, 1, 1, 1),)
+        else:
+            all_hidden_states += (self.task_emb_2.repeat(batch_size, 1, 1, 1),)
 
         hidden_states = torch.cat(all_hidden_states[::-1], dim=1)
-        
+
         hidden_states = self.linear_fuse(hidden_states)
         hidden_states = self.batch_norm(hidden_states)
         hidden_states = self.activation(hidden_states)
         hidden_states = self.dropout(hidden_states)
-        
+
         logits = self.classifier(hidden_states)
 
         logits = F.interpolate(logits, size=input_shape, mode="bilinear", align_corners=False)

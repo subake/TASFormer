@@ -42,17 +42,17 @@ class LitSeg(pl.LightningModule):
             'test': self.hparams.test_datasets
         }
 
-        if self.hparams.backbone == 'segformer_with_task_embedding':
-            self.mask_net = networks.segformer_with_task_embedding.SegFormer(
+        if self.hparams.backbone == 'tasformer_with_task_embedding':
+            self.mask_net = networks.tasformer_with_task_embedding.TASFormerEmbedding(
                 num_classes=num_output_channels,
                 num_tasks=self.hparams.num_tasks,
             )
-        elif self.hparams.backbone == 'segformer_with_vsa_task_embedding':
-            self.mask_net = networks.segformer_with_vsa_task_embedding.SegFormer(
+        elif self.hparams.backbone == 'tasformer_with_vsa_task_embedding':
+            self.mask_net = networks.tasformer_with_vsa_task_embedding.TASFormerVSAEmbedding(
                 num_classes=num_output_channels,
             )
-        elif self.hparams.backbone == 'segformer_with_adapter':
-            self.mask_net = networks.segformer_with_adapter.SegFormer(
+        elif self.hparams.backbone == 'tasformer_with_adapter':
+            self.mask_net = networks.tasformer_with_adapter.TASFormerAdapter(
                 num_classes=num_output_channels,
             )
         elif self.hparams.backbone == 'segformer':
@@ -60,7 +60,7 @@ class LitSeg(pl.LightningModule):
                 num_classes=num_output_channels,
             ) 
         else:
-            raise BaseException('backbone must be [segformer, segformer_with_task_embedding, segformer_with_vsa_task_embedding, segformer_with_adapter]')
+            raise BaseException('backbone must be [segformer, tasformer_with_task_embedding, tasformer_with_vsa_task_embedding, tasformer_with_adapter]')
 
         # Losses
         if num_output_channels <= 2:
@@ -89,9 +89,9 @@ class LitSeg(pl.LightningModule):
         cat_num = self.num_output_channels
         if cat_num == 1:
             cat_num += 1
-        if self.hparams.backbone == 'segformer_with_task_embedding' \
-            or self.hparams.backbone == 'segformer_with_vsa_task_embedding' \
-            or self.hparams.backbone == 'segformer_with_adapter':
+        if self.hparams.backbone == 'tasformer_with_task_embedding' \
+            or self.hparams.backbone == 'tasformer_with_vsa_task_embedding' \
+            or self.hparams.backbone == 'tasformer_with_adapter':
             outp1 = self.mask_net(image, 0)
             
             mask_logits = [outp1['out'][0]]
@@ -120,9 +120,9 @@ class LitSeg(pl.LightningModule):
             batch_mask[batch_mask == cur_task] = 1
 
             with torch.no_grad():
-                if self.hparams.backbone == 'segformer_with_task_embedding' \
-                    or self.hparams.backbone == 'segformer_with_vsa_task_embedding' \
-                    or self.hparams.backbone == 'segformer_with_adapter':
+                if self.hparams.backbone == 'tasformer_with_task_embedding' \
+                    or self.hparams.backbone == 'tasformer_with_vsa_task_embedding' \
+                    or self.hparams.backbone == 'tasformer_with_adapter':
                     
                     outp = self.mask_net(torch.clone(batch['image']), cur_task - 1)
                     mask_logits = outp['out'][0]
@@ -145,9 +145,9 @@ class LitSeg(pl.LightningModule):
 
         for i, cur_batch in enumerate(batch):
             cur_task = cur_batch['task'][0]
-            if self.hparams.backbone == 'segformer_with_task_embedding' \
-                or self.hparams.backbone == 'segformer_with_vsa_task_embedding' \
-                or self.hparams.backbone == 'segformer_with_adapter':
+            if self.hparams.backbone == 'tasformer_with_task_embedding' \
+                or self.hparams.backbone == 'tasformer_with_vsa_task_embedding' \
+                or self.hparams.backbone == 'tasformer_with_adapter':
                 outp = self.mask_net(cur_batch['image'], cur_task - 1)
                 mask_logits = outp['out'][0]
             else:
@@ -177,9 +177,9 @@ class LitSeg(pl.LightningModule):
 
         # Predict mask
         with torch.no_grad():
-            if self.hparams.backbone == 'segformer_with_task_embedding' \
-                or self.hparams.backbone == 'segformer_with_vsa_task_embedding' \
-                or self.hparams.backbone == 'segformer_with_adapter':
+            if self.hparams.backbone == 'tasformer_with_task_embedding' \
+                or self.hparams.backbone == 'tasformer_with_vsa_task_embedding' \
+                or self.hparams.backbone == 'tasformer_with_adapter':
                 outp = self.mask_net(batch['image'], cur_task - 1)
                 mask_logits = outp['out'][0]
             else:

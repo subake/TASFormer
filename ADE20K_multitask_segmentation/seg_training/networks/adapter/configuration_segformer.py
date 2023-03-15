@@ -126,7 +126,7 @@ class SegformerConfig(PretrainedConfig):
                 "as the behaviour will default to that of reshape_last_stage = True.",
                 FutureWarning,
             )
-        self.num_tasks = 2
+        self.num_tasks = 150
         self.num_channels = num_channels
         self.num_encoder_blocks = num_encoder_blocks
         self.depths = depths

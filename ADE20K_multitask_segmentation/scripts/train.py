@@ -35,7 +35,7 @@ def main(config):
         monitor='ade_val/iou',
         mode='max',
         dirpath='./',
-        filename=f'model_{config.name}' + '_-epoch-{epoch:02d}-iou-{ade_val/iou:.4f}',
+        filename=f'model_{config.name}' + '-epoch-{epoch:02d}-iou-{ade_val/iou:.4f}',
         auto_insert_metric_name=False)
 
     trainer = pl.Trainer.from_argparse_args(

@@ -7,7 +7,7 @@ import torchvision
 import math
 
 
-class SegFormer(nn.Module):
+class TASFormerEmbedding(nn.Module):
     def __init__(
         self,
         num_classes,
@@ -19,7 +19,7 @@ class SegFormer(nn.Module):
             std=[0.229, 0.224, 0.225]
         )
 
-        # Load pretrained segformer
+        # Load pretrained model
         self.segformer_model = SegformerModel.from_pretrained(
             "nvidia/mit-b0",
             num_labels=num_classes,

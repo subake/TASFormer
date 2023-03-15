@@ -2,13 +2,13 @@ import torch
 import torch.nn as nn
 import torchvision
 
-# For segformer_with_adapter you additionally have to manually update files inside 
+# For tasformer_with_adapter you additionally have to manually update files inside 
 # anaconda3/envs/tasformer/lib/python3.8/site-packages/transformers/models/segformer/ 
 # with files from transformers_update_for_adapters/hf/ or transformers_update_for_adapters/hf++/
 from transformers import SegformerForSemanticSegmentation
 from transformers import SegformerDecodeHead
 
-class SegFormer(nn.Module):
+class TASFormerAdapter(nn.Module):
     def __init__(
         self,
         num_classes,
@@ -20,8 +20,8 @@ class SegFormer(nn.Module):
             std=[0.229, 0.224, 0.225]
         )
 
-        # Load pretrained segformer
-        self.segformer = SegformerForSemanticSegmentation.from_pretrained(
+        # Load pretrained model
+        self.tasformer = SegformerForSemanticSegmentation.from_pretrained(
             "nvidia/mit-b0",
             num_labels=num_classes,
         )
@@ -31,7 +31,7 @@ class SegFormer(nn.Module):
         inp = self.norm_input(inp)
 
         # Predict mask
-        output = self.segformer(inp, task_num)
+        output = self.tasformer(inp, task_num)
 
         # Resize masks
         logits = nn.functional.interpolate(output.logits, size=inp.shape[-2:], mode="bilinear", align_corners=True)

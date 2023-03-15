@@ -412,12 +412,8 @@ class SegformerLayer(nn.Module):
         mlp_hidden_size = int(hidden_size * mlp_ratio)
         self.mlp = SegformerMixFFN(config, in_features=hidden_size, hidden_features=mlp_hidden_size)
         
-        self.adapters = []
         self.reduction_factor = 8
-        num_tasks = config.num_tasks
-        for _ in range(num_tasks):
-            self.adapters.append(AdapterLayer(hidden_size, self.reduction_factor))
-        self.adapters = nn.ModuleList(self.adapters)
+        self.adapters = AdapterLayer(hidden_size, self.reduction_factor)
 
     def forward(self, hidden_states, height, width, task_embedding, task_num, output_attentions=False): #
         
@@ -436,7 +432,7 @@ class SegformerLayer(nn.Module):
         hidden_states = attention_output + hidden_states
 
         mlp_output = self.mlp(self.layer_norm_2(hidden_states), height, width)
-        mlp_output = self.adapters[task_num](mlp_output, task_embedding)
+        mlp_output = self.adapters(mlp_output, task_embedding)
 
         # second residual connection (with stochastic depth)
         mlp_output = self.drop_path(mlp_output)
