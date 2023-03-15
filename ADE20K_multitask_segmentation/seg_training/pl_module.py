@@ -158,7 +158,7 @@ class LitSeg(pl.LightningModule):
                 cur_loss = self.loss_fn(mask_logits[:, 0], cur_batch['mask'].to(torch.float32))
             else:
                 cur_loss = self.loss_fn(mask_logits[cur_task], cur_batch['mask'].long())
-            loss += cur_los
+            loss += cur_loss
 
             self.log(f'{self.dataset_names[mode][i]}/loss', cur_loss)
         
