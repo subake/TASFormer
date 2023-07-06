@@ -5,9 +5,9 @@ from PIL import Image
 import cv2
 
 # annotations
-gt_path = "/hdd/wingrune/ADEChallengeData2016/annotations/validation"
+gt_path = "/home/data/ADE20K/annotations/validation"
 # path to masks with all categories
-pred_path = "/home/wingrune/cv/TASFormer/ADE20K_multitask_segmentation/results/adapter_150"
+pred_path = "/home/TASFormer/ADE20K_multitask_segmentation/results/adapter_150_640"
 
 num_classes = 150
 # 12
