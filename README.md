@@ -4,7 +4,7 @@
 
 
 
-[[`arXiv`]()] [[`pdf`]()] [[`BibTeX`]()]
+[[`Springer`](https://link.springer.com/chapter/10.1007/978-981-99-8073-4_24)] [[`pdf`](https://link.springer.com/chapter/10.1007/978-981-99-8073-4_24)] [[`BibTeX`](#citation)]
 
 This repo contains the code for our paper **TASFormer: Task-aware Image Segmentation Transformer**.
 
@@ -76,3 +76,19 @@ Segmentation results of TASFormer (HF adapter) with different `Crop Size` on ADE
 | TASFormer (HF adapter) | 7.3M | 320&times;320 | 14.6 | 48.3 |
 | TASFormer (HF adapter) | 7.3M | 640&times;640 | 14.7 | 51.1 |
 | TASFormer (HF adapter) | 7.3M | 896&times;896 | 14.4 | **52.0** |
+
+## Citation
+If you found DAPS3D useful in your research, please consider starring ⭐ us on GitHub and citing 📚 us in your research!
+
+```bibtex
+@InProceedings{yudin2024tasformer,
+title={TASFormer: Task-Aware Image Segmentation Transformer},
+author={Yudin, Dmitry and Khorin, Aleksandr and Zemskova, Tatiana and Ovchinnikova, Darya},
+booktitle={Neural Information Processing},
+year={2024},
+publisher={Springer Nature Singapore},
+pages={305--317},
+doi={10.1007/978-981-99-8073-4_24}
+}
+```
+
