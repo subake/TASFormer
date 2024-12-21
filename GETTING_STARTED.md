@@ -63,20 +63,20 @@ python3 scripts/inference.py --config configs/config_ade.yaml \
 ## Pretrained Models 
 | Method | Params | Num Classes | Crop Size | $bIoU$, % | Checkpoint |
 |   :---:| :---:   |  :---: |    :---:   |    :---:   |    :---:   |
-| SegFormer (B0) | 3.8M | 2 | 320&times;320 | 63.2 | [model](https://drive.google.com/file/d/1He4BffxQ95-aGqG_mf-V7e7kOtzkpG9m/view?usp=share_link) |
-| SegFormer (B0) | 3.8M | 12 | 320&times;320 | 52.4 | [model](https://drive.google.com/file/d/1l7AFDGU6CMUYpbj-lfPvuQsHsvRO43Da/view?usp=share_link) |
-| SegFormer (B0) | 3.8M | 150 | 320&times;320 | 37.9 | [model](https://drive.google.com/file/d/152QlhIACRD1QJ6AwHtpnsiPTzN8RhNAe/view?usp=share_link) |
-| TASFormer (emb) | 4.1M | 2 | 320&times;320 | 60.8 | [model](https://drive.google.com/file/d/1Z3HgILxH2Et0iKDwwTHfw5zMhInQlr0n/view?usp=share_link) |
-| TASFormer (emb) | 4.7M | 12 | 320&times;320 | 6.1 | [model](https://drive.google.com/file/d/1OmgqJHjPIwp7T0MukHwZdEh8oyAJf77t/view?usp=share_link) |
-| TASFormer (emb) | 13.6M | 150 | 320&times;320 | 14.1 | [model](https://drive.google.com/file/d/1NXYU2eGip7R3yhVVk3XZ7u2_qjLhZcu8/view?usp=share_link) |
-| TASFormer (vsa emb) | 4.1M | 2 | 320&times;320 | 48.6 | [model](https://drive.google.com/file/d/1Rdl3-ANu7C7hW65MJP8QjY5mtIHOuwyS/view?usp=share_link) |
-| TASFormer (vsa emb) | 4.1M | 12 | 320&times;320 | 0.1 | [model](https://drive.google.com/file/d/1DtdpiQrntwPqrxl48K7h_UP8Zwm2SMEQ/view?usp=share_link) |
-| TASFormer (vsa emb) | 4.1M | 150 | 320&times;320 | 0.1 | [model](https://drive.google.com/file/d/1RwF88JoSNGKpO2c1qcvBJqw1CmN74uAR/view?usp=share_link) |
-| TASFormer (HF adapter) | 7.3M | 2 | 320&times;320 | 67.9 | [model](https://drive.google.com/file/d/1K2LjAMoxjr9Kc83kF_9aUwR_vUjPLMCB/view?usp=share_link) |
-| TASFormer (HF adapter) | 7.3M | 12 | 320&times;320 | 59.4 | [model](https://drive.google.com/file/d/1ALZdDXM9Mq3BWHNZmEL8aH0DsSN8QE8I/view?usp=share_link) |
-| TASFormer (HF adapter) | 7.3M | 150 | 320&times;320 | 48.3 | [model](https://drive.google.com/file/d/1E8D-ahBjvp-sPonyNCPwvTWeg8iezdN5/view?usp=share_link) |
-| TASFormer (HF adapter) | 7.3M |150 | 640&times;640 | 51.1 | [model](https://drive.google.com/file/d/1r8Ea7poabAPVhMJ10Is83X_yx0iNtQqv/view?usp=share_link) |
-| TASFormer (HF adapter) | 7.3M | 150 | 896&times;896 | 52.0 | [model](https://drive.google.com/file/d/1gpvXgGPYZ9aPSNtRy6j34bGmfApmh3Lt/view?usp=share_link) |
-| TASFormer (HF adapter++) | 5.7M | 2 | 320&times;320 | 67.9 | [model](https://drive.google.com/file/d/1Ld9Cwbc4E3yR1iTzR41LEASWK9G0qF0J/view?usp=share_link) |
-| TASFormer (HF adapter++) | 5.7M | 12 | 320&times;320 | 58.4 | [model](https://drive.google.com/file/d/10RoS8hAhcjPaH5zPYoqNhLn2X_mFQIQ3/view?usp=share_link) |
-| TASFormer (HF adapter++) | 5.7M | 150 | 320&times;320 | 47.6 | [model](https://drive.google.com/file/d/1zk0g2curcEJ4qwbtVYq6hpsPguLHz9Ip/view?usp=share_link) |
+| SegFormer (B0) | 3.8M | 2 | 320&times;320 | 63.2 | [model](https://drive.google.com/file/d/1PFQsBBjS0lAT41zJ3hF-KdnHmHzVQ10N/view?usp=drive_link) |
+| SegFormer (B0) | 3.8M | 12 | 320&times;320 | 52.4 | [model](https://drive.google.com/file/d/1u1VhJM9tko943jBEIzrB-RSVrvQV8Qug/view?usp=drive_link) |
+| SegFormer (B0) | 3.8M | 150 | 320&times;320 | 37.9 | [model](https://drive.google.com/file/d/103X3JZRk82VJlnGl4DiuyDHhRbbvrL4x/view?usp=drive_link) |
+| TASFormer (emb) | 4.1M | 2 | 320&times;320 | 60.8 | [model](https://drive.google.com/file/d/1nwlKJ_NDGNaCkN1P2hqdJdGP3Fo7qqha/view?usp=drive_link) |
+| TASFormer (emb) | 4.7M | 12 | 320&times;320 | 6.1 | [model](https://drive.google.com/file/d/1835-f-TKRdG6pFomqOJtFN2GptloDfQY/view?usp=drive_link) |
+| TASFormer (emb) | 13.6M | 150 | 320&times;320 | 14.1 | [model](https://drive.google.com/file/d/14DbM6p6Iqm_Zqruzqo1SCp2CLZulWwWr/view?usp=drive_link) |
+| TASFormer (vsa emb) | 4.1M | 2 | 320&times;320 | 48.6 | [model](https://drive.google.com/file/d/1nvukY2Jh177DxLPwJ_OTeGmPLtB87E34/view?usp=drive_link) |
+| TASFormer (vsa emb) | 4.1M | 12 | 320&times;320 | 0.1 | [model](https://drive.google.com/file/d/1tTOHdSh4HlQTjZWPH9HtOB3z-7TSCy7g/view?usp=drive_link) |
+| TASFormer (vsa emb) | 4.1M | 150 | 320&times;320 | 0.1 | [model](https://drive.google.com/file/d/1eDVhWDha4RLKsGfIO861MXkaeGiiOw1L/view?usp=drive_link) |
+| TASFormer (HF adapter) | 7.3M | 2 | 320&times;320 | 67.9 | [model](https://drive.google.com/file/d/1XIq5DM08hGA3tv9PcvDzizrgfNLh4k0h/view?usp=drive_link) |
+| TASFormer (HF adapter) | 7.3M | 12 | 320&times;320 | 59.4 | [model](https://drive.google.com/file/d/1V_0hBspI2BidHAX1VFew5yEsE6-XhZDN/view?usp=drive_link) |
+| TASFormer (HF adapter) | 7.3M | 150 | 320&times;320 | 48.3 | [model](https://drive.google.com/file/d/18mkc_QybP2EMyNorj7_fSfh-eKjPj98u/view?usp=drive_link) |
+| TASFormer (HF adapter) | 7.3M |150 | 640&times;640 | 51.1 | [model](https://drive.google.com/file/d/1A_A6ZC_3jYG07cLFNjLK2WYXE3ZbNA9n/view?usp=drive_link) |
+| TASFormer (HF adapter) | 7.3M | 150 | 896&times;896 | 52.0 | [model](https://drive.google.com/file/d/1cCSDl0bPX9uL33rS6Q8HP0cf-LgLhjtl/view?usp=drive_link) |
+| TASFormer (HF adapter++) | 5.7M | 2 | 320&times;320 | 67.9 | [model](https://drive.google.com/file/d/1uPb5AEDj2VKbjKOP3lVYPRbVhM4oced7/view?usp=drive_link) |
+| TASFormer (HF adapter++) | 5.7M | 12 | 320&times;320 | 58.4 | [model](https://drive.google.com/file/d/1TGlpAisiZMY8JQ1FqMsC5UiUxA-ThBjO/view?usp=drive_link) |
+| TASFormer (HF adapter++) | 5.7M | 150 | 320&times;320 | 47.6 | [model](https://drive.google.com/file/d/1SjfSbMTZBQgUhsQoz-uJd7ej6QQrgXLm/view?usp=drive_link) |
